@@ -5,10 +5,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import Repository.googlePageRepo;
 import Utility.driverInit;
 
 public class testGoogleHomePage extends driverInit{
 	WebDriver driver;
+	googlePageRepo gpRepo= new googlePageRepo(driver);
 	
 	@BeforeClass
 	public void getDriver(){
@@ -21,8 +23,9 @@ public class testGoogleHomePage extends driverInit{
 	}
 	
 	@Test
-	public void goToGoogle(){
+	public void goToGoogle() throws InterruptedException{
 		driver.get("https://www.google.com");
+		gpRepo.enterSearchText();
 	}
 
 }
